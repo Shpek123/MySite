@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", "Merriweather", sans-serif;
+    line-height: 1.8;
+    color: #d8daca;
+    background: linear-gradient(135deg, #52443e, #2f2926);
+    min-height: 100vh;
+    overflow-x: hidden
+}
+
+/* Контейнер для всего контента */
+.container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: linear-gradient(180deg, #5b564d, #5a554c);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 28px;
+    font-size: clamp(0.7rem, 1.5vw, 2rem);
+    font-family: "Merriweather";
+    text-align: center;
+    z-index: 10;
+}
+
+/* Обертка для основного контента (две колонки) */
+.content-wrapper {
+    display: flex;
+    flex: 1;
+    position: relative;
+    z-index: 5;
+}
+
+/* Левая колонка - навигация */
+.sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+    max-height: 35vh;
+}
+
+nav {
+    background: #5a554c;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+nav:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+nav h2 {
+    font-family: "Merriweather";
+}
+
+nav li {
+    list-style: none;
+    margin: 15px 0;
+    background: #e8e8e8;
+    padding: 12px 40px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+nav li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    background: #d6e1c1;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #5a554c;
+    font-weight: bold;
+}
+
+/* Основная область контента */
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.card {
+    background: #e8e8e8;
+    border-radius: 10px;
+    width: 100%; /* Занимает всю ширину main */
+    max-width: 800px; /* Максимальная ширина */
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    color: #2a191c;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    background: #f8f8f8;
+}
+
+.card p {
+    font-size: medium;
+    font-style: italic;
+}
+
+.card h2 {
+    color: #768064;
+    transition: all 0.2s ease;
+}
+
+.card:hover h2 {
+    transform: translateX(10px);
+}
+
+.docs {
+    display: flex;
+    flex-direction: column;
+}
+
+.docs ul {
+    list-style: none;
+}
+
+.docs li {
+    text-align: center;
+}
+
+.docs img {
+    width: 70%;
+    background: #768064;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.docs a {
+    text-decoration: none;
+    background: #5a554c;
+    padding: 20px 30px;
+    border-radius: 10px;
+    color: #d8daca;
+    transition: all 0.2s ease;
+}
+
+.docs a:hover {
+    background: #d8daca;
+    color: #5a554c;
+}
+
+.videotop {
+    text-decoration: none;
+    color: #52443e;
+}
+
+/* Фоновое изображение */
+.background-image {
+    position: absolute;
+    left: 50vw;
+    top: 0;
+    height: 80%;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+footer {
+    background: linear-gradient(180deg, #5b564d, #5a554c);
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 28px;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    position: relative;
+    z-index: 10;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        position: static;
+        padding: 10px;
+        margin-bottom: 100px;
+    }
+    
+    nav li {
+        margin: 10px 0;
+        padding: 10px 25vw;
+    }
+    
+    .background-image {
+        display: none;
+    }
+    
+    main {
+        padding: 10px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+}
